@@ -1,39 +1,40 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class Main {
-    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        Caluculadoras ca =new Caluculadoras();
-        ca.CalculadoraLogica();
-
-//        int opcion;
-//        do {
-//            System.out.println("\n=== MENÚ ===");
-//            System.out.println("1) Calculadora aritmética");
-//            System.out.println("2) Calculadora lógica");
-//            System.out.println("3) Comparador relacional");
-//            System.out.println("4) Salir");
-//            System.out.print("Elige: ");
-//            opcion = leerEnteroSeguro();
-//
-//            switch (opcion) {
-//                case 1 ->
-//                case 2 ->
-//                case 3 ->
-//                case 4 -> System.out.println("¡Adiós!");
-//                default -> System.out.println("Opción inválida.");
-//            }
-//        } while (opcion != 4);
-//
-//        sc.close();
+        Main m= new Main();
+        System.out.println(m.division(1,0));
     }
 
-    private static int leerEnteroSeguro() {
-        while (!sc.hasNextInt()) {
-            System.out.print("Ingresa un número válido: ");
-            sc.next();
+      /*
+  * Ejercicios para practicar
+
+Crea un método0 que pida un número por consola y capture la excepción si el usuario escribe letras. (InputMismatchException).
+
+Implementa un método0 division(int a, int b) que lance un IllegalArgumentException si b == 0.
+
+Usa finally para cerrar un Scanner después de leer datos, aunque ocurra un error.*/
+    public void metodo1(){
+        try{
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Escribe un numero: ");
+            int numero= sc.nextInt();
+        }catch (InputMismatchException e){
+            System.out.printf("Error: %s%n", e.getMessage());
+        }finally {
+            System.out.println("Metodo1 Finalizado.");
         }
-        return sc.nextInt();
+
     }
+
+    public int division(int a, int b){
+        if (b == 0){
+            throw new IllegalArgumentException("No se puede dividir entre 0");
+        }
+        return a/b;
+    }
+
+
 }
