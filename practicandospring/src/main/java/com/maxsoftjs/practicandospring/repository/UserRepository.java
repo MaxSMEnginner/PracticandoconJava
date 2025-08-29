@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long>{
     // Buscar por username (lo necesitaremos para login)
     Optional<User> findByUsername(String username);
+
+    Optional<User> findById(Integer userid);
 }

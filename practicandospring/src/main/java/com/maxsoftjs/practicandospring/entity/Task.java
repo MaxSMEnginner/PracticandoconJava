@@ -1,5 +1,6 @@
 package com.maxsoftjs.practicandospring.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -30,7 +31,8 @@ public class Task {
     private LocalDateTime updateAt;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
+    @JsonBackReference   // 👈 evita el ciclo
     private User user;
 
 
