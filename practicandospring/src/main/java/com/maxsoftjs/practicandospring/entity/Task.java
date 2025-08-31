@@ -26,14 +26,19 @@ public class Task {
     @Column(name="created_at",updatable = false)
     private LocalDateTime createdAt;
 
+
     @UpdateTimestamp
     @Column(name="updated_at")
     private LocalDateTime updateAt;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference   // 👈 evita el ciclo
     private User user;
+
+
+
 
 
 }
